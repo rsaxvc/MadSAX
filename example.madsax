@@ -1,4 +1,6 @@
 #This is a comment
+/svg
+/svg/defs
 /svg/defs/linearGradient #Comments can also go here
 /svg/defs/style
 
