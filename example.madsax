@@ -1,0 +1,9 @@
+#This is a comment
+/svg/defs/linearGradient #Comments can also go here
+/svg/defs/style
+
+/svg/rect
+/svg/circle
+/svg/line
+/svg/polyline
+
