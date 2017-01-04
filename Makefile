@@ -1,11 +1,11 @@
-example: example.c main.c madsax_support.c
-	gcc main.c -lexpat -o example -g -Wall
+example: main.c example.c madsax_support.c
+	gcc $< -lexpat -o $@ -g -Wall
 
 example.c: example.gperf
-	cat example.gperf | gperf -CtnI --output-file=example.c
+	gperf -CtnI $^ --output-file=$@
 
 example.gperf: example.madsax madsax.py
-	./madsax.py example.madsax > example.gperf
+	./madsax.py $< > $@
 
 clean:
 	rm -f example example.c example.gperf
