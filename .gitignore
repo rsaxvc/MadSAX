@@ -1,2 +1,7 @@
 *.swp
 *.pyc
+
+example
+example.c
+example.gperf
+
