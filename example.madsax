@@ -1,5 +1,18 @@
 #This is a comment
+
+#Blank lines are fine too
+
+#The next line is a tag declaration.
+#It tells madsax to generate a group
+#of functions(open&close) for each tag.
 /svg
+
+#/svg/defs is nested under /svg. So
+#madsay will generate
+#a open(/svg) followed by pairs of
+#open(/svg/defs/) & close(/svg/devs)
+#for any nested <defs> tags
+#before the close(/svg)
 /svg/defs
 /svg/defs/linearGradient #Comments can also go here
 /svg/defs/style
