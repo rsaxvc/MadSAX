@@ -16,19 +16,13 @@ def process_header(line):
 	comment  = ''
 
 	function = 'handle_tag_start' + '__'.join(tokens)
-	sys.stdout.write( 'static void ' + function + '(void *data, const char *el, const char **attr)'+comment+'\n{\n')
-	sys.stdout.write( 'printf("' + function + ' called\\n");\n' )
-	sys.stdout.write( '}\n' )
+	sys.stdout.write( 'static void ' + function + '(void *data, const char *el, const char **attr)'+comment+';\n')
 
 	function = 'handle_tag_end' + '__'.join(tokens)
-	sys.stdout.write( 'static void ' + function + '(void *data, const char *el)'                   +comment+'\n{\n')
-	sys.stdout.write( 'printf("' + function + ' called\\n");\n' )
-	sys.stdout.write( '}\n' )
+	sys.stdout.write( 'static void ' + function + '(void *data, const char *el)'                   +comment+';\n')
 
 	function = 'handle_tag_data' + '__'.join(tokens)
-	sys.stdout.write( 'static void ' + function + '(void *data, const char *content, int length)'  +comment+'\n{\n')
-	sys.stdout.write( 'printf("' + function + ' called\\n");\n' )
-	sys.stdout.write( '}\n' )
+	sys.stdout.write( 'static void ' + function + '(void *data, const char *content, int length)'  +comment+';\n')
 
 #def process_gperf(lineno,line):
 def process_gperf(line):
@@ -64,7 +58,10 @@ void (*tag_start)(void *data, const char *el, const char **attr);
 void (*tag_end)  (void *data, const char *el);
 void (*tag_data) (void *data, const char *content, int length);
 };
-#include <stdio.h>
+
+#include <expat.h>
+#include "madsax_support.c"
+
 ''')
 
 for line in lines:

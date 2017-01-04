@@ -3,61 +3,6 @@
 #include <stdio.h>
 #include <expat.h>
 
-char * tag_buffer;
-size_t tag_buffer_len;
-size_t tag_buffer_max;
-
-static void tagBufferInit()
-{
-tag_buffer = malloc(1);
-tag_buffer_len = 0;
-tag_buffer_max = 0;
-tag_buffer[tag_buffer_len] = 0;
-}
-
-static void tagBufferDestroy()
-{
-free(tag_buffer);
-tag_buffer = NULL;
-tag_buffer_len = 0;
-}
-
-static void tagBufferPush(const char * tag, size_t len)
-{
-if(tag_buffer_len + len > tag_buffer_max )
-	{
-	tag_buffer_max = tag_buffer_len + len;
-	tag_buffer = realloc( tag_buffer, tag_buffer_max + 1);
-	}
-strcpy(tag_buffer+tag_buffer_len,tag);
-tag_buffer_len += len;
-}
-
-static void tagBufferPop(const char * tag, size_t len)
-{
-tag_buffer_len -= len;
-tag_buffer[tag_buffer_len] = 0;
-}
-
-static void StartElementHandler(void *userData, const XML_Char *name, const XML_Char **atts)
-{
-tagBufferPush("/", 1 );
-tagBufferPush(name, strlen(name) );
-printf("StartElementHandler:%s:%s\n",name,tag_buffer);
-const struct tag_handler * tag = in_word_set( tag_buffer, tag_buffer_len );
-if( tag )tag->tag_start(userData,name,atts);
-}
-
-static void EndElementHandler(void *userData, const XML_Char *name)
-{
-printf("EndElementHandler:%s:%s\n",name,tag_buffer);
-const struct tag_handler * tag = in_word_set( tag_buffer, tag_buffer_len );
-if( tag )tag->tag_end(userData,name);
-tagBufferPop(name, strlen(name) );
-tagBufferPop("/", 1 );
-}
-
-
 int main()
 {
   char buf[128];
@@ -83,3 +28,30 @@ int main()
   fclose( fh );
   return 0;
 }
+
+
+static void handle_tag_start__svg(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg(void *data, const char *el){}
+static void handle_tag_data__svg(void *data, const char *content, int length){}
+static void handle_tag_start__svg__defs(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__defs(void *data, const char *el){}
+static void handle_tag_data__svg__defs(void *data, const char *content, int length){}
+static void handle_tag_start__svg__defs__linearGradient(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__defs__linearGradient(void *data, const char *el){}
+static void handle_tag_data__svg__defs__linearGradient(void *data, const char *content, int length){}
+static void handle_tag_start__svg__defs__style(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__defs__style(void *data, const char *el){}
+static void handle_tag_data__svg__defs__style(void *data, const char *content, int length){}
+static void handle_tag_start__svg__rect(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__rect(void *data, const char *el){}
+static void handle_tag_data__svg__rect(void *data, const char *content, int length){}
+static void handle_tag_start__svg__circle(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__circle(void *data, const char *el){}
+static void handle_tag_data__svg__circle(void *data, const char *content, int length){}
+static void handle_tag_start__svg__line(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__line(void *data, const char *el){}
+static void handle_tag_data__svg__line(void *data, const char *content, int length){}
+static void handle_tag_start__svg__polyline(void *data, const char *el, const char **attr){}
+static void handle_tag_end__svg__polyline(void *data, const char *el){}
+static void handle_tag_data__svg__polyline(void *data, const char *content, int length){}
+

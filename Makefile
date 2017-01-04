@@ -1,4 +1,4 @@
-example: example.c main.c
+example: example.c main.c madsax_support.c
 	gcc main.c -lexpat -o example -g -Wall
 
 example.c: example.gperf
