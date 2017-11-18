@@ -8,8 +8,8 @@
 /svg
 
 #/svg/defs is nested under /svg. So
-#madsay will generate
-#a open(/svg) followed by pairs of
+#madsax will generate
+#an open(/svg) followed by pairs of
 #open(/svg/defs/) & close(/svg/devs)
 #for any nested <defs> tags
 #before the close(/svg)
