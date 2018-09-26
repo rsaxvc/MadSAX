@@ -15,10 +15,11 @@
 #before the close(/svg)
 /svg/defs
 /svg/defs/linearGradient #Comments can also go here
+/svg/defs/radialGradient
 /svg/defs/style
 
 /svg/rect
 /svg/circle
 /svg/line
 /svg/polyline
-
+/svg/path

@@ -9,7 +9,6 @@ def stripComments( line ):
 	else:
 		return line[:pos]
 
-#def process_header(lineno,line):
 def process_header(line):
 	tokens = line.split('/')
 	#comment = '/*' + str(lineno) + '*/'
@@ -24,7 +23,6 @@ def process_header(line):
 	function = 'handle_tag_data' + '__'.join(tokens)
 	sys.stdout.write( 'static void ' + function + '(void *data, const char *content, int length)'  +comment+';\n')
 
-#def process_gperf(lineno,line):
 def process_gperf(line):
 	tokens = line.split('/')
 	#comment = '/*' + str(lineno) + '*/'

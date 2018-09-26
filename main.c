@@ -53,9 +53,15 @@ static void handle_tag_data__svg__defs(void *data, const char *content, int leng
 static void handle_tag_start__svg__defs__linearGradient(void *data, const char *el, const char **attr){handle_tag_start(data,__func__);}
 static void handle_tag_end__svg__defs__linearGradient(void *data, const char *el){handle_tag_end(data,__func__);}
 static void handle_tag_data__svg__defs__linearGradient(void *data, const char *content, int length){}
+static void handle_tag_start__svg__defs__radialGradient(void *data, const char *el, const char **attr){handle_tag_start(data,__func__);}
+static void handle_tag_end__svg__defs__radialGradient(void *data, const char *el){handle_tag_end(data,__func__);}
+static void handle_tag_data__svg__defs__radialGradient(void *data, const char *content, int length){}
 static void handle_tag_start__svg__defs__style(void *data, const char *el, const char **attr){handle_tag_start(data,__func__);}
 static void handle_tag_end__svg__defs__style(void *data, const char *el){handle_tag_end(data,__func__);}
 static void handle_tag_data__svg__defs__style(void *data, const char *content, int length){}
+static void handle_tag_start__svg__path(void *data, const char *el, const char **attr){handle_tag_start(data,__func__);}
+static void handle_tag_end__svg__path(void *data, const char *el){handle_tag_end(data,__func__);}
+static void handle_tag_data__svg__path(void *data, const char *content, int length){}
 static void handle_tag_start__svg__rect(void *data, const char *el, const char **attr){handle_tag_start(data,__func__);}
 static void handle_tag_end__svg__rect(void *data, const char *el){handle_tag_end(data,__func__);}
 static void handle_tag_data__svg__rect(void *data, const char *content, int length){}
